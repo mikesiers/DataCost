@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module datacost</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>datacost</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/michael/Career/Projects/DataCost/src/datacost.py">/Users/michael/Career/Projects/DataCost/src/datacost.py</a></font></td></tr></table>
+    <p><tt>datacost.py&nbsp;:&nbsp;Cost-Sensitive&nbsp;Data&nbsp;Measures<br>
+&nbsp;<br>
+This&nbsp;module&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;calculate&nbsp;various&nbsp;cost-sensitive&nbsp;measurements.<br>
+It&nbsp;is&nbsp;mainly&nbsp;intended&nbsp;for&nbsp;use&nbsp;in&nbsp;machine&nbsp;learning&nbsp;algorithms.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="math.html">math</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-cost_labelling_negative"><strong>cost_labelling_negative</strong></a>(num_positive, num_negative, cost_matrix)</dt><dd><tt>Used&nbsp;to&nbsp;calculate&nbsp;the&nbsp;cost&nbsp;of&nbsp;labelling&nbsp;every&nbsp;data&nbsp;point&nbsp;as&nbsp;negative.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;num_positive&nbsp;(int):&nbsp;The&nbsp;number&nbsp;of&nbsp;positive&nbsp;data&nbsp;points.<br>
+&nbsp;&nbsp;num_negative&nbsp;(int):&nbsp;The&nbsp;number&nbsp;of&nbsp;negative&nbsp;data&nbsp;points.<br>
+&nbsp;&nbsp;cost_matrix&nbsp;(dict):&nbsp;Every&nbsp;cost.&nbsp;e.g.,&nbsp;{'TP':1,&nbsp;'TN':0,&nbsp;'FP':1,&nbsp;'FN':5}<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;(num):&nbsp;The&nbsp;cost&nbsp;of&nbsp;labelling&nbsp;every&nbsp;data&nbsp;point&nbsp;as&nbsp;negative.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;TypeError:&nbsp;If&nbsp;an&nbsp;incorrect&nbsp;number&nbsp;of&nbsp;arguments&nbsp;are&nbsp;passed.<br>
+&nbsp;&nbsp;KeyError:&nbsp;If&nbsp;the&nbsp;passed&nbsp;cost_matrix&nbsp;is&nbsp;missing&nbsp;a&nbsp;cost.</tt></dd></dl>
+ <dl><dt><a name="-cost_labelling_positive"><strong>cost_labelling_positive</strong></a>(num_positive, num_negative, cost_matrix)</dt><dd><tt>Used&nbsp;to&nbsp;calculate&nbsp;the&nbsp;cost&nbsp;of&nbsp;labelling&nbsp;every&nbsp;data&nbsp;point&nbsp;as&nbsp;positive.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;num_positive&nbsp;(int):&nbsp;The&nbsp;number&nbsp;of&nbsp;positive&nbsp;data&nbsp;points.<br>
+&nbsp;&nbsp;num_negative&nbsp;(int):&nbsp;The&nbsp;number&nbsp;of&nbsp;negative&nbsp;data&nbsp;points.<br>
+&nbsp;&nbsp;cost_matrix&nbsp;(dict):&nbsp;Every&nbsp;cost.&nbsp;e.g.,&nbsp;{'TP':1,&nbsp;'TN':0,&nbsp;'FP':1,&nbsp;'FN':5}<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;(num):&nbsp;The&nbsp;cost&nbsp;of&nbsp;labelling&nbsp;every&nbsp;data&nbsp;point&nbsp;as&nbsp;positive.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;TypeError:&nbsp;If&nbsp;an&nbsp;incorrect&nbsp;number&nbsp;of&nbsp;arguments&nbsp;are&nbsp;passed.<br>
+&nbsp;&nbsp;KeyError:&nbsp;If&nbsp;the&nbsp;passed&nbsp;cost_matrix&nbsp;is&nbsp;missing&nbsp;a&nbsp;cost.</tt></dd></dl>
+</td></tr></table>
+</body></html>
