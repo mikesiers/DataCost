@@ -1,6 +1,7 @@
 import sys
 sys.path.append('../')
-from src.datacost import cost_labelling_positive, cost_labelling_negative
+from src.datacost import cost_labelling_positive, cost_labelling_negative,\
+  expected_cost
 import unittest
 
 class test_calculations(unittest.TestCase):
