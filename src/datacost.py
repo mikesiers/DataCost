@@ -57,3 +57,32 @@ def cost_labelling_negative(num_positive, num_negative, cost_matrix):
     raise KeyError('A cost is missing from the passed cost matrix.')
 
   return num_negative * cost_matrix['TN'] + num_positive * cost_matrix['FN']
+
+def expected_cost(num_positive, num_negative, cost_matrix):
+  """Used to calculate the expected cost for a set of data points.
+
+  Args:
+    num_positive (int): The number of positive data points.
+    num_negative (int): The number of negative data points.
+    cost_matrix (dict): Every cost. e.g., {'TP':1, 'TN':0, 'FP':1, 'FN':5}
+
+  Returns:
+    (num): The expected cost for the given data points.
+
+  Raises:
+    TypeError: If an incorrect number of arguments are passed.
+    KeyError: If the passed cost_matrix is missing a cost.
+
+  """
+  if len(locals()) < 3:
+    raise TypeError('Too few arguments.')
+  elif len(locals()) > 3:
+    raise TypeError('Too many arguments.')
+                                                                     
+  if any(k not in cost_matrix for k in ('TP', 'TN', 'FP', 'FN')):
+    raise KeyError('A cost is missing from the passed cost matrix.')
+
+  c_p = cost_labelling_positive(num_positive, num_negative, cost_matrix)
+  c_n = cost_labelling_negative(num_positive, num_negative, cost_matrix)
+
+  return (2 * c_p * c_n)/(c_p + c_n)
