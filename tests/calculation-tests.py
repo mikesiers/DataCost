@@ -1,6 +1,6 @@
 import sys
 sys.path.append('../')
-from src.DataCost import cost_labelling_positive, cost_labelling_negative
+from src.datacost import cost_labelling_positive, cost_labelling_negative
 import unittest
 
 class test_calculations(unittest.TestCase):
@@ -12,9 +12,9 @@ class test_calculations(unittest.TestCase):
     # Test that if <3 or >3 arguments are passed, a TypeError is raised.
     with self.assertRaises(TypeError):
       cost_labelling_positive(2, 3)
-      cost_labelling_positive(2, 3, 7, cost_matrix)
+      cost_labelling_positive(2, 3, 7, self.cost_matrix)
     # Test a simple case with 2 positive and 3 negative data points.
-    self.assertEqual(cost_labelling_positive(2, 3, cost_matrix), 5)
+    self.assertEqual(cost_labelling_positive(2, 3, self.cost_matrix), 5)
     # Test that a KeyError is raised when the passed cost_matrix doesn't
     # contain the required costs.
     with self.assertRaises(KeyError):
@@ -25,9 +25,9 @@ class test_calculations(unittest.TestCase):
     # Test that if <3 or >3 arguments are passed, a TypeError is raised.
     with self.assertRaises(TypeError):
       cost_labelling_negative(2, 3)
-      cost_labelling_negative(2, 3, 7, cost_matrix)
+      cost_labelling_negative(2, 3, 7, self.cost_matrix)
     # Test a simple case with 2 positive and 3 negative data points.
-    self.assertEqual(cost_labelling_negative(2, 3, cost_matrix, 10))
+    self.assertEqual(cost_labelling_negative(2, 3, self.cost_matrix), 10)
     # Test that a KeyError is raised when the passed cost_matrix doesn't
     # contain the required costs.
     with self.assertRaises(KeyError):
