@@ -88,7 +88,7 @@ def expected_cost(num_positive, num_negative, cost_matrix):
   return (2 * c_p * c_n)/(c_p + c_n)
 
 def expected_cost_after_split(class_supports, cost_matrix):
-  """Used to calculate the expected cost for a set of data points.
+  """Used to calculate the expected cost for a set of splitted data points.
 
   Args:
     class_supports (list<dict>): The class supports for each split where the
@@ -97,7 +97,7 @@ def expected_cost_after_split(class_supports, cost_matrix):
     cost_matrix (dict): Every cost. e.g., {'TP':1, 'TN':0, 'FP':1, 'FN':5}
 
   Returns:
-    (num): The expected cost for the given child nodes (splits).
+    (num): The expected cost for the set of splitted data points.
 
   Raises:
     TypeError: If an incorrect number of arguments are passed.
@@ -125,3 +125,32 @@ def expected_cost_after_split(class_supports, cost_matrix):
     child_expected_costs.append(child_cost)
 
   return sum(child_expected_costs)
+
+def expected_cost_per_record(num_positive, num_negative, cost_matrix):
+  """Used to calculate the expected cost per data point.
+
+  Args:
+    num_positive (int): The number of positive data points.
+    num_negative (int): The number of negative data points.
+    cost_matrix (dict): Every cost. e.g., {'TP':1, 'TN':0, 'FP':1, 'FN':5}
+
+  Returns:
+    (num): The expected cost per data point.
+
+  Raises:
+    TypeError: If an incorrect number of arguments are passed.
+    KeyError: If the passed cost_matrix is missing a cost.
+
+  """
+  if len(locals()) < 3:
+    raise TypeError('Too few arguments.')
+  elif len(locals()) > 3:
+    raise TypeError('Too many arguments.')
+                                                                     
+  if any(k not in cost_matrix for k in ('TP', 'TN', 'FP', 'FN')):
+    raise KeyError('A cost is missing from the passed cost matrix.')
+
+  expected_cost_all = expected_cost(num_positive, num_negative, cost_matrix)
+  num_data_points = num_positive + num_negative
+
+  return expected_cost_all / num_data_points
