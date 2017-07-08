@@ -113,8 +113,9 @@ def expected_cost_after_split(class_supports, cost_matrix):
   if any(k not in cost_matrix for k in ('TP', 'TN', 'FP', 'FN')):
     raise KeyError('A cost is missing from the passed cost matrix.')
 
-  if any(k not in class_supports for k in ('positive', 'negative')):
-    raise KeyError('Class supports missing either positive or negative key.')
+  for child_class_supports in class_supports:
+    if any(k not in child_class_supports for k in ('positive', 'negative')):
+      raise KeyError('Class supports missing either positive or negative key.')
 
   child_expected_costs = []
   for supports in class_supports:
