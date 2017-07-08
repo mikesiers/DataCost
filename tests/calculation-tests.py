@@ -73,5 +73,19 @@ class test_calculations(unittest.TestCase):
         {'Y' : 3, 'N' : 1}]
       expected_cost_after_split(class_supports, bad_cost_matrix)
 
+    def test_expected_cost_per_record(self):
+      # Test that if <3 or >3 arguments are passed, a TypeError is raised.
+      with self.assertRaises(TypeError):
+        expected_cost_per_record(2, 3)
+        expected_cost_per_record(2, 3, 7, self.cost_matrix)
+      # Test a simple case with 2 positive and 3 negative data points.
+      cost = expected_cost_per_record(2, 3, self.cost_matrix)
+      self.assertEqual(round(cost, 5), 1.33333)
+      # Test that a KeyError is raised when the passed cost_matrix doesn't
+      # contain the required costs.
+      with self.assertRaises(KeyError):
+        bad_cost_matrix = {'TP' : 1, 'TN' : 0, 'FP' : 1}
+        expected_cost_per_record(2, 3, bad_cost_matrix)
+
 if __name__ == '__main__':
     unittest.main(exit=False)
