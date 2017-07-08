@@ -67,5 +67,20 @@ Returns:<br>
 Raises:<br>
 &nbsp;&nbsp;TypeError:&nbsp;If&nbsp;an&nbsp;incorrect&nbsp;number&nbsp;of&nbsp;arguments&nbsp;are&nbsp;passed.<br>
 &nbsp;&nbsp;KeyError:&nbsp;If&nbsp;the&nbsp;passed&nbsp;cost_matrix&nbsp;is&nbsp;missing&nbsp;a&nbsp;cost.</tt></dd></dl>
+ <dl><dt><a name="-expected_cost_after_split"><strong>expected_cost_after_split</strong></a>(class_supports, cost_matrix)</dt><dd><tt>Used&nbsp;to&nbsp;calculate&nbsp;the&nbsp;expected&nbsp;cost&nbsp;for&nbsp;a&nbsp;set&nbsp;of&nbsp;data&nbsp;points.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;class_supports&nbsp;(list&lt;dict&gt;):&nbsp;The&nbsp;class&nbsp;supports&nbsp;for&nbsp;each&nbsp;split&nbsp;where&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;i'th&nbsp;split&nbsp;corresponds&nbsp;to&nbsp;the&nbsp;(i-1)'th&nbsp;element&nbsp;of&nbsp;the&nbsp;list.&nbsp;For&nbsp;example,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;second&nbsp;split&nbsp;could&nbsp;be&nbsp;{'positive'&nbsp;:&nbsp;2,&nbsp;'negative'&nbsp;:&nbsp;6}.<br>
+&nbsp;&nbsp;cost_matrix&nbsp;(dict):&nbsp;Every&nbsp;cost.&nbsp;e.g.,&nbsp;{'TP':1,&nbsp;'TN':0,&nbsp;'FP':1,&nbsp;'FN':5}<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;(num):&nbsp;The&nbsp;expected&nbsp;cost&nbsp;for&nbsp;the&nbsp;given&nbsp;child&nbsp;nodes&nbsp;(splits).<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;TypeError:&nbsp;If&nbsp;an&nbsp;incorrect&nbsp;number&nbsp;of&nbsp;arguments&nbsp;are&nbsp;passed.<br>
+&nbsp;&nbsp;KeyError:&nbsp;If&nbsp;the&nbsp;passed&nbsp;cost_matrix&nbsp;is&nbsp;missing&nbsp;a&nbsp;cost&nbsp;or&nbsp;the&nbsp;passed<br>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;supports&nbsp;is&nbsp;missing&nbsp;either&nbsp;of&nbsp;the&nbsp;keys:&nbsp;'positive'&nbsp;or&nbsp;'negative'.</tt></dd></dl>
 </td></tr></table>
 </body></html>
