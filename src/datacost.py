@@ -86,3 +86,41 @@ def expected_cost(num_positive, num_negative, cost_matrix):
   c_n = cost_labelling_negative(num_positive, num_negative, cost_matrix)
 
   return (2 * c_p * c_n)/(c_p + c_n)
+
+def expected_cost_after_split(class_supports, cost_matrix):
+  """Used to calculate the expected cost for a set of data points.
+
+  Args:
+    class_supports (list<dict>): The class supports for each split where the
+      i'th split corresponds to the (i-1)'th element of the list. For example,
+      the second split could be {'positive' : 2, 'negative' : 6}.
+    cost_matrix (dict): Every cost. e.g., {'TP':1, 'TN':0, 'FP':1, 'FN':5}
+
+  Returns:
+    (num): The expected cost for the given child nodes (splits).
+
+  Raises:
+    TypeError: If an incorrect number of arguments are passed.
+    KeyError: If the passed cost_matrix is missing a cost or the passed
+      class supports is missing either of the keys: 'positive' or 'negative'.
+
+  """
+  if len(locals()) < 2:
+    raise TypeError('Too few arguments.')
+  elif len(locals()) > 2:
+    raise TypeError('Too many arguments.')
+                                                                     
+  if any(k not in cost_matrix for k in ('TP', 'TN', 'FP', 'FN')):
+    raise KeyError('A cost is missing from the passed cost matrix.')
+
+  if any(k not in class_supports for k in ('positive', 'negative')):
+    raise KeyError('Class supports missing either positive or negative key.')
+
+  child_expected_costs = []
+  for supports in class_supports:
+    num_positive = supports['positive']
+    num_negative = supports['negative']
+    child_cost = expected_cost(num_positive, num_negative, cost_matrix)
+    child_expected_costs.append(child_cost)
+
+  return sum(child_expected_costs)
