@@ -30,18 +30,23 @@ The cost incurred by labelling as positive is calculated as:
 ### Expected Cost
 The expected cost is typically a representation of how much a set of data points can be expected to cost a business. It is represented by the symbol *E*. The equation for *E* is as follows:
 
-![Expected Cost](https://raw.githubusercontent.com/mikesiers/DataCost.py/master/readmeImg/ExpectedCost.gif)
+![Expected Cost](https://raw.githubusercontent.com/mikesiers/DataCost/master/readmeImg/ExpectedCost.gif)
 
 ### Expected Cost After Split
 After a split, a set of data points has several new sets of class supports, one for each split. The expected cost difference can be calculated as the difference between *E* for the original dataset, and the summed *E* over all splits. The equation for expected cost after a split is as follows:
 
-![Expected Cost After Split](https://raw.githubusercontent.com/mikesiers/DataCost.py/master/readmeImg/ExpectedCostAfterSplit.gif)
+![Expected Cost After Split](https://raw.githubusercontent.com/mikesiers/DataCost/master/readmeImg/ExpectedCostAfterSplit.gif)
 
 Where *k* is the number of splits, C<sub>P</sub><sup>i</sup> is the value of C<sub>P</sub> for the *i*'th split.
 
 ### Expected Cost Per Record
 The expected cost per data point is simply the expected cost for a dataset divided by the number of data points in the dataset. It is a way of normalizing expected cost such that logical comparisons may be made between the expected cost of two datasets of different size.
 
-![Expected Cost Per Data Point](https://raw.githubusercontent.com/mikesiers/DataCost.py/master/readmeImg/ExpectedCostPerDataPoint.gif)
+![Expected Cost Per Data Point](https://raw.githubusercontent.com/mikesiers/DataCost/master/readmeImg/ExpectedCostPerDataPoint.gif)
 
 Where |*D*| is the number of records in the dataset *D*. 
+
+### Total Cost ###
+The total cost for a set of records is calculated as either *C*<sub>*N*</sub> or *C*<sub>*P*</sub>, whichever is lowest.
+
+*C*<sub>T</sub> = min(*C*<sub>*N*</sub>, *C*<sub>*P*</sub>)
