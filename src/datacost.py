@@ -154,3 +154,33 @@ def expected_cost_per_record(num_positive, num_negative, cost_matrix):
   num_data_points = num_positive + num_negative
 
   return expected_cost_all / num_data_points
+
+def total_cost(num_positive, num_negative, cost_matrix):
+  """Used to calculate the total cost of the set of data points.
+
+  Args:
+    num_positive (int): The number of positive data points.
+    num_negative (int): The number of negative data points.
+    cost_matrix (dict): Every cost. e.g., {'TP':1, 'TN':0, 'FP':1, 'FN':5}
+
+  Returns:
+    (num): The total cost of the set of data points.
+
+  Raises:
+    TypeError: If an incorrect number of arguments are passed.
+    KeyError: If the passed cost_matrix is missing a cost.
+
+  """
+  if len(locals()) < 3:
+    raise TypeError('Too few arguments.')
+  elif len(locals()) > 3:
+    raise TypeError('Too many arguments.')
+
+  if any(k not in cost_matrix for k in ('TP', 'TN', 'FP', 'FN')):
+    raise KeyError('A cost is missing from the passed cost matrix.')
+
+  # The total cost is actually equal to the lowest cost out of 1) the cost
+  # of labelling as positive, and 2) the cost of labelling as negative.
+  c_p = cost_labelling_positive(num_positive, num_negative, cost_matrix)
+  c_n = cost_labelling_negative(num_positive, num_negative, cost_matrix)
+  return min(c_p, c_n)
