@@ -1,6 +1,6 @@
 from distutils.core import setup
 setup(
-  name = 'dc1',
+  name = 'datacost',
   py_modules = ['datacost'],
   version = '1.07',
   description = 'Calculate cost based metrics about data based on the number\
