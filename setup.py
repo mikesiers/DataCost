@@ -1,7 +1,7 @@
 from distutils.core import setup
 setup(
   name = 'DataCost',
-  packages = ['src'],
+  packages = ['datacost'],
   version = '1.03',
   description = 'Calculate cost based metrics about data based on the number\
     of positive and negative data points.',
