@@ -4,8 +4,7 @@ Calculate cost-based metrics about binary classification data.
 These cost metrics are used at the core of the classification algorithms CSTree, CSForest, BCSForest,
 and BCF.
 
-Full documentation available [here]
-(http://htmlpreview.github.io/?https://github.com/mikesiers/DataCost/blob/master/docs/datacost.html).
+Full documentation available [here](http://htmlpreview.github.io/?https://github.com/mikesiers/DataCost/blob/master/docs/datacost.html).
 
 ## Quick Guide ##
 
